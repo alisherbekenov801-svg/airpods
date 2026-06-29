@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirPods 3 + Mi Band — комплект со скидкой 50%</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d0d0d; color: #f0f0f0; }
+  .wrap { max-width: 480px; margin: 0 auto; background: #111; min-height: 100vh; }
+
+  /* Hero */
+  .hero-img {
+    width: 100%; height: 240px;
+    background: linear-gradient(160deg, #1a1a1a 0%, #111 100%);
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; position: relative; overflow: hidden;
+    border-bottom: 1px solid #222;
+  }
+  .hero-img::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(99,102,241,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 75% 40%, rgba(16,185,129,0.08) 0%, transparent 55%);
+  }
+  .hero-img img { height: 175px; width: 150px; object-fit: contain; position: relative; z-index: 1; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6)); }
+  .img-airpods { transform: rotate(-8deg) translateX(10px); }
+  .img-miband { transform: rotate(4deg) translateX(-10px); height: 160px; width: 120px; }
+  .plus-sign { font-size: 28px; color: #444; position: relative; z-index: 1; padding: 0 4px; }
+
+  /* Hero content */
+  .hero-content { padding: 28px 20px 28px; text-align: center; border-bottom: 1px solid #222; }
+  .badge { display: inline-block; background: rgba(99,102,241,0.18); color: #a5b4fc; font-size: 11px; padding: 3px 12px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 0.05em; border: 1px solid rgba(99,102,241,0.3); }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+  h1 span { color: #818cf8; }
+  .hero-content > p { font-size: 14px; color: #999; line-height: 1.65; margin-bottom: 20px; }
+  .price-row { display: flex; align-items: baseline; justify-content: center; gap: 10px; margin-bottom: 20px; }
+  .price-new { font-size: 28px; font-weight: 700; color: #fff; }
+  .price-old { font-size: 14px; color: #555; text-decoration: line-through; }
+  .price-save { font-size: 12px; color: #34d399; background: rgba(16,185,129,0.12); padding: 2px 9px; border-radius: 20px; border: 1px solid rgba(16,185,129,0.25); }
+
+  /* Buttons */
+  .btn-wa { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: #25D366; color: #fff; border: none; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; margin-bottom: 10px; text-decoration: none; }
+  .btn-wa svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .btn-phone { display: block; width: 100%; background: transparent; color: #ccc; border: 1px solid #2a2a2a; padding: 13px; border-radius: 12px; font-size: 15px; cursor: pointer; text-align: center; text-decoration: none; }
+  .btn-phone:hover { border-color: #444; color: #fff; }
+
+  /* Products */
+  .products { padding: 24px 20px; border-bottom: 1px solid #222; }
+  .products h2 { font-size: 16px; font-weight: 600; color: #aaa; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; }
+  .pcard { background: #1a1a1a; border-radius: 14px; border: 1px solid #222; padding: 16px; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .pcard:last-child { margin-bottom: 0; }
+  .pthumb { width: 64px; height: 64px; border-radius: 12px; background: #222; border: 1px solid #2a2a2a; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .pthumb img { width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
+  .pinfo h3 { font-size: 15px; font-weight: 600; margin-bottom: 3px; color: #f0f0f0; }
+  .pinfo p { font-size: 12px; color: #666; line-height: 1.5; margin-bottom: 6px; }
+  .pinfo .price { font-size: 14px; font-weight: 600; color: #818cf8; }
+  .pinfo .price span { color: #444; font-size: 11px; font-weight: 400; }
+
+  /* Features */
+  .features { padding: 24px 20px; border-bottom: 1px solid #222; }
+  .features h2 { font-size: 17px; font-weight: 700; margin-bottom: 14px; color: #f0f0f0; }
+  .fgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .fcard { background: #1a1a1a; border-radius: 14px; border: 1px solid #222; padding: 14px 12px; }
+  .fcard .icon { font-size: 22px; margin-bottom: 8px; }
+  .fcard h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; color: #f0f0f0; }
+  .fcard p { font-size: 12px; color: #666; line-height: 1.5; }
+
+  /* Reviews */
+  .reviews { padding: 24px 20px; border-bottom: 1px solid #222; }
+  .reviews h2 { font-size: 17px; font-weight: 700; margin-bottom: 14px; color: #f0f0f0; }
+  .rcard { background: #1a1a1a; border-radius: 14px; border: 1px solid #222; padding: 14px 16px; margin-bottom: 8px; }
+  .rcard:last-child { margin-bottom: 0; }
+  .stars { color: #fbbf24; font-size: 13px; margin-bottom: 6px; }
+  .rcard p { font-size: 13px; color: #aaa; line-height: 1.6; margin-bottom: 8px; }
+  .rauthor { font-size: 12px; color: #555; }
+
+  /* Bottom CTA */
+  .bottom { padding: 28px 20px 36px; text-align: center; }
+  .bottom h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: #fff; }
+  .bottom > p { font-size: 14px; color: #666; margin-bottom: 20px; line-height: 1.6; }
+  .trust { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+  .trust-item { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; color: #555; }
+
+  /* Divider */
+  .divider { text-align: center; color: #2a2a2a; font-size: 11px; letter-spacing: 0.1em; padding: 4px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Hero image -->
+  <div class="hero-img">
+    <img class="img-airpods"
+      src="https://assets.stickpng.com/images/62fbbfaf342f1f906d378073.png"
+      alt="AirPods 3"
+      onerror="this.style.display='none'">
+    <span class="plus-sign">+</span>
+    <img class="img-miband"
+      src="https://i02.appmifile.com/mi-com-product/fly-birds/xiaomi-smart-band-8/pc/overview/27af838fcf4bd4eb3474e04ddf1641a6.jpg"
+      alt="Mi Band"
+      onerror="this.style.display='none'">
+  </div>
+
+  <!-- Hero content -->
+  <div class="hero-content">
+    <div class="badge">🔥 Комплект со скидкой 50%</div>
+    <h1>AirPods 3 + <span>Mi Band</span></h1>
+    <p>Звук без проводов и умный трекер. Идеальный дуэт для тех, кто живёт в движении.</p>
+    <div class="price-row">
+      <span class="price-new">19 995 ₸</span>
+      <span class="price-old">39 990 ₸</span>
+      <span class="price-save">−50%</span>
+    </div>
+    <a class="btn-wa" href="https://wa.me/77782363365?text=Хочу%20купить%20комплект%20AirPods%203%20%2B%20Mi%20Band">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Заказать в WhatsApp
+    </a>
+    <a class="btn-phone" href="tel:+77782363365">📞 +7 778 236 33 65</a>
+  </div>
+
+  <!-- Products -->
+  <div class="products">
+    <h2>Что входит в комплект</h2>
+    <div class="pcard">
+      <div class="pthumb">
+        <img src="https://assets.stickpng.com/images/62fbbfaf342f1f906d378073.png" alt="AirPods 3" onerror="this.src=''; this.parentElement.innerHTML='🎧';">
+      </div>
+      <div class="pinfo">
+        <h3>Apple AirPods 3</h3>
+        <p>Пространственный звук, адаптивный EQ, до 30 часов с кейсом</p>
+        <div class="price">24 990 ₸ <span>в розницу</span></div>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="pthumb">
+        <img src="https://i02.appmifile.com/mi-com-product/fly-birds/xiaomi-smart-band-8/pc/overview/27af838fcf4bd4eb3474e04ddf1641a6.jpg" alt="Mi Band" style="width:52px;height:52px;object-fit:contain;" onerror="this.src=''; this.parentElement.innerHTML='⌚';">
+      </div>
+      <div class="pinfo">
+        <h3>Xiaomi Mi Band</h3>
+        <p>Мониторинг здоровья, 14 дней без зарядки, AMOLED-дисплей</p>
+        <div class="price">14 990 ₸ <span>в розницу</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <h2>Зачем брать вместе?</h2>
+    <div class="fgrid">
+      <div class="fcard">
+        <div class="icon">💰</div>
+        <h4>Выгода 10 000 ₸</h4>
+        <p>Экономия vs раздельной покупки</p>
+      </div>
+      <div class="fcard">
+        <div class="icon">📦</div>
+        <h4>Одна доставка</h4>
+        <p>Один заказ и одно ожидание</p>
+      </div>
+      <div class="fcard">
+        <div class="icon">🏃</div>
+        <h4>Спорт и жизнь</h4>
+        <p>Музыка и пульс одновременно</p>
+      </div>
+      <div class="fcard">
+        <div class="icon">🛡️</div>
+        <h4>Гарантия 1 год</h4>
+        <p>На каждое устройство</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="reviews">
+    <h2>Отзывы покупателей</h2>
+    <div class="rcard">
+      <div class="stars">★★★★★</div>
+      <p>Брала как подарок мужу — в восторге оба. AirPods звучат шикарно, Mi Band уже три месяца без нареканий. Доставили на следующий день!</p>
+      <div class="rauthor">Айгерим, Алматы</div>
+    </div>
+    <div class="rcard">
+      <div class="stars">★★★★★</div>
+      <p>Комплект огонь. Пришёл быстро, упаковано аккуратно. Цена лучше чем в магазинах. Буду рекомендовать друзьям.</p>
+      <div class="rauthor">Данияр, Астана</div>
+    </div>
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="bottom">
+    <h2>Готовы к заказу?</h2>
+    <p>Доставка по Казахстану от 1 дня.<br>Оплата при получении.</p>
+    <a class="btn-wa" href="https://wa.me/77782363365?text=Хочу%20купить%20комплект%20AirPods%203%20%2B%20Mi%20Band">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Написать в WhatsApp
+    </a>
+    <div class="trust">
+      <span class="trust-item">🚚 Быстрая доставка по Казахстану</span>
+      <span class="trust-item">🔄 Возврат 14 дней</span>
+      <span class="trust-item">🔒 Безопасная оплата</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
